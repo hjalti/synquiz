@@ -35,10 +35,11 @@ content_types = {
 }
 
 HERE = Path(__file__).parent.resolve()
+REVEAL = HERE / 'main'
 
 class Npm:
     def __enter__(self):
-        os.chdir(reveal())
+        os.chdir(REVEAL)
         self.process = subprocess.Popen(['npm', 'start'])
         return self
 
@@ -47,8 +48,8 @@ class Npm:
             print('Terminating npm')
             self.process.terminate()
 
-def reveal():
-    return args.dir / '..' / 'main'
+def check_data_dir(home):
+    (home / 'data').mkdir(exist_ok=True)
 
 def randstr():
     return ''.join([random.choice(string.ascii_lowercase) for _ in range(5)])
@@ -339,11 +340,11 @@ class Quiz:
 
 def setup_symlinks():
     for p in link_paths:
-        (reveal() / p).symlink_to(args.dir / p)
+        (REVEAL / p).symlink_to(args.dir / p)
 
 def teardown_symlinks():
     for p in link_paths:
-        (reveal() / p).unlink()
+        (REVEAL / p).unlink()
 
 def render(both=False):
     try:
@@ -388,6 +389,7 @@ def watch():
     print('Watch stopped')
 
 def generate(watch_file):
+    check_data_dir(args.dir)
     with Npm() as npm:
         try:
             setup_symlinks()
@@ -418,7 +420,7 @@ def finalize(args):
         if dest.exists():
             print('Skipping', p)
         else:
-            src = reveal() / p
+            src = REVEAL / p
             print(f'Copying {src} -> {dest}')
             shutil.copytree(src, dest)
 
@@ -430,6 +432,7 @@ def init(args):
         return
     args.dir.mkdir()
     quizfile = args.dir / 'quiz.yaml'
+    check_data_dir(args.dir)
     init_yaml = f'''title: {args.dir.name}
 subtitle: Optional subtitle
 quiz:
