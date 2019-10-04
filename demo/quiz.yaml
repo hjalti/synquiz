@@ -22,11 +22,6 @@ quiz:
       text: What is measured on the Scoville scaling?
       answer: Heat/spiciness
 
-    - type: image
-      text: What is the output of this program?
-      url: data/japh.png
-      answer: Just another PERL hacker
-
     - type: text
       text: Who was the genetic template for The Clone Army of The Republic in Star Wars?
       answer: Jango Fett
@@ -53,7 +48,6 @@ quiz:
           answer: Ford Fairlane
 
         - type: audio
-          text: ''
           id: little-friend
           url: https://www.youtube.com/watch?v=AVQ8byG2mY8
           start: 6
@@ -64,7 +58,6 @@ quiz:
       text: From which TV shows do these theme songs come?
       questions:
         - type: audio
-          text: ''
           id: instrumental
           url: https://www.youtube.com/watch?v=L7ZrWOGIbIE
           start: 0
@@ -72,7 +65,6 @@ quiz:
           answer: Jeeves and Wooster
 
         - type: audio
-          text: ''
           id: traffic
           url: https://www.youtube.com/watch?v=sbqm3q1_yZk
           start: 0
@@ -80,7 +72,6 @@ quiz:
           answer: King of Queens
 
         - type: audio
-          text: ''
           id: instrumental2
           url: https://www.youtube.com/watch?v=gHSFV5IkM5c
           start: 0
@@ -88,7 +79,6 @@ quiz:
           answer: Angel
 
         - type: audio
-          text: ''
           id: insane
           url: https://www.youtube.com/watch?v=L8efZXvPR7A
           start: 0
@@ -96,7 +86,6 @@ quiz:
           answer: Stark Raving Mad
 
         - type: audio
-          text: ''
           id: jungle
           url: https://www.youtube.com/watch?v=7j5Be5a86uA
           start: 3
@@ -104,7 +93,6 @@ quiz:
           answer: Monk
 
         - type: audio
-          text: ''
           id: jungle
           url: https://www.youtube.com/watch?v=ourfSzoC7pA
           start: 0
@@ -112,26 +100,16 @@ quiz:
           answer: Brooklyn Nine-Nine
 
         - type: audio
-          text: ''
           id: jungle
           url: https://www.youtube.com/watch?v=TjCnHJ8wIuM
           start: 0
           len: 20
           answer: ER
 
-        - type: audio
-          text: ''
-          id: jungle
-          url: data/mystery.ogg
-          start: 0
-          len: 33
-          answer: Star Trek - Deep Space Nine
-
     - type: super
       text: Who wrote and originally performed these cover songs?
       questions:
         - type: audio
-          text: ''
           id: feel-my-love
           url: https://www.youtube.com/watch?v=0put0_a--Ng
           start: 35
@@ -139,7 +117,6 @@ quiz:
           answer: Bob Dylan
 
         - type: audio
-          text: ''
           id: dancing-on-my-own
           url: https://www.youtube.com/watch?v=q31tGyBJhRY
           start: 30
@@ -147,7 +124,6 @@ quiz:
           answer: Robyn
 
         - type: audio
-          text: ''
           id: hallelujah
           url: https://www.youtube.com/watch?v=y8AWFf7EAc4
           start: 80
@@ -155,7 +131,6 @@ quiz:
           answer: Leonard Cohen
 
         - type: audio
-          text: ''
           id: fall-in-love
           url: https://www.youtube.com/watch?v=IwT8Pu-kS0o
           start: 5
@@ -166,42 +141,30 @@ quiz:
       text: What do these logos represent?
       questions:
         - type: image
-          text: ''
           url: https://portswigger.net/content/images/logos/thumbnail.png
-          answer: Burp Suite
+          answer: Portswigger
 
         - type: image
-          text: ''
           url: https://www.v3.co.uk/w-images/abadf7d1-ea72-48be-a7f2-0c14fc9f86e9/0/winrarlogo-580x358.jpeg
           answer: WinRAR
 
         - type: image
-          text: ''
           url: https://starwarsblog.starwars.com/wp-content/uploads/sites/6/2015/11/rebel-symbol.jpg
           answer: The Rebel Alliance
 
         - type: image
-          text: ''
           url: https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Aperture_Science.svg/1024px-Aperture_Science.svg.png
           answer: Aperture Laboratories
 
         - type: image
-          text: ''
           url: https://upload.wikimedia.org/wikipedia/en/thumb/e/e0/Marmot_Logo.svg/1024px-Marmot_Logo.svg.png
           answer: Marmot
 
         - type: image
-          text: ''
-          url: data/sdg.png
-          answer: Miðflokkurinn
-
-        - type: image
-          text: ''
           url: https://vuejs.org/images/logo.png
           answer: Vue.js
 
         - type: image
-          text: ''
           url: http://dcplusplus.sourceforge.net/webhelp/DCPlusPlus.png
           answer: DC++
 
@@ -209,46 +172,37 @@ quiz:
       text: What were these pets called that appeared in TV shows and movies?
       questions:
         - type: image
-          text: ''
           url: https://i.ytimg.com/vi/pcpNl5HLGkY/hqdefault.jpg
           answer: Eddie
 
         - type: image
-          text: ''
           url: https://imgix.bustle.com/rehost/2016/9/13/827dab71-4b79-47b7-acf0-3a3b00703156.jpg?w=970&h=582&fit=crop&crop=faces&auto=format&q=70
           answer: Marcel
 
         - type: image
-          text: ''
           url: https://img.yescdn.ru/2016/01/30/cover/54d5618e904447b8f676f94a7427501c-beethoven.jpg
           answer: Beethoven
 
         - type: image
-          text: ''
           url: https://cdn.playbuzz.com/cdn/ac3f41f6-b4c7-4aa9-83af-17d892cc19be/896af8ae-0440-495e-b013-c915d3fb0eb7.jpg
           answer: Mr. Whiskerson
 
         - type: image
-          text: ''
           url: https://static1.squarespace.com/static/51b3dc8ee4b051b96ceb10de/t/5a315ec5652dea5202a332e4/1513184972244/steven-spielberg-saved-gizmo-from-becoming-a-villain-in-gremlins-social.jpg?format=2500w
           answer: Gizmo
 
         - type: image
-          text: ''
           url: https://vignette.wikia.nocookie.net/harrypotter/images/1/1e/Hedwig_Snowy_Owl_PM.png/revision/latest?cb=20161123234010
           answer: Hedwig
 
         - type: image
-          text: ''
           url: https://www.rover.com/blog/wp-content/uploads/2016/11/Paul_Anka_Dog-960x540.jpg
           answer: Paul Anka
 
         - type: image
-          text: ''
           url: https://vignette.wikia.nocookie.net/avatar/images/4/43/Inquisitive_Momo.png/revision/latest?cb=20081225191217
           answer: Momo
 
         - type: image
-          text: ''
           url: https://vignette.wikia.nocookie.net/disney/images/a/a0/Mushu_character.png/revision/latest?cb=20180509053919
           answer: Mushu
