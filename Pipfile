@@ -8,7 +8,6 @@ verify_ssl = true
 [packages]
 pyyaml = "*"
 mako = "*"
-youtube-dl = "*"
 watchdog = "*"
 
 [requires]
