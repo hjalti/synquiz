@@ -235,7 +235,7 @@ class Quiz:
         self._prepare_cache()
 
         with open(home / 'quiz.yaml') as f:
-            self.quiz_data = yaml.load(f)
+            self.quiz_data = yaml.load(f, Loader=yaml.SafeLoader)
             self.question_title = self.quiz_data.get('question_title', 'Question')
 
 
