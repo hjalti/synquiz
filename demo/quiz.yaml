@@ -1,5 +1,5 @@
-title: Syndis
-subtitle: Halloween Pubquiz
+title: Funquiz
+subtitle: Example pubquiz
 quiz:
     - type: text
       text: What does the acronym VIM stand for?
@@ -10,144 +10,35 @@ quiz:
       url: https://image.freepik.com/free-photo/close-up-dry-fusilli_23-2147749537.jpg
       answer: Fusilli
 
-    - type: text
-      text: Which famous dessert is made using only cream, sugar, vanilla and gelatine?
-      answer: Panna cotta
+    - type: audio
+      url: https://www.youtube.com/watch?v=1mpWuJ8plhU
+      len: 7
+      text: Which movie does this quote come from?
+      answer: Sneakers
 
-    - type: text
-      text: Everyone loves the song, of course, but what does the word 'despacito' mean?
-      answer: Slowly
+    - type: video
+      url: https://www.youtube.com/watch?v=SiXNUaSjXRY
+      text: What was Roger Murtaugh's response?
+      start: 0
+      len: 12
+      answer:
+          type: video
+          url: https://www.youtube.com/watch?v=SiXNUaSjXRY
+          text: It's just been revoked
+          hide_question: true
 
-    - type: text
-      text: What is measured on the Scoville scaling?
-      answer: Heat/spiciness
-
-    - type: text
-      text: Who was the genetic template for The Clone Army of The Republic in Star Wars?
-      answer: Jango Fett
-
-    - type: super
-      text: Which movies do these quotes come from?
-      questions:
-        - type: audio
-          id: voice
-          url: https://www.youtube.com/watch?v=1mpWuJ8plhU
-          len: 7
-          answer: Sneakers
-
-        - type: audio
-          id: pc-load-letter
-          url: https://www.youtube.com/watch?v=5QQdNbvSGok
-          len: 24
-          answer: Office Space
-
-        - type: audio
-          id: assholes
-          url: https://www.youtube.com/watch?v=oA7P5l9CNUg
-          len: 8
-          answer: Ford Fairlane
-
-        - type: audio
-          id: little-friend
-          url: https://www.youtube.com/watch?v=AVQ8byG2mY8
-          start: 6
-          len: 10
-          answer: Scarface
-
-    - type: super
-      text: From which TV shows do these theme songs come?
-      questions:
-        - type: audio
-          id: instrumental
-          url: https://www.youtube.com/watch?v=L7ZrWOGIbIE
-          start: 0
-          len: 24
-          answer: Jeeves and Wooster
-
-        - type: audio
-          id: traffic
-          url: https://www.youtube.com/watch?v=sbqm3q1_yZk
-          start: 0
-          len: 30
-          answer: King of Queens
-
-        - type: audio
-          id: instrumental2
-          url: https://www.youtube.com/watch?v=gHSFV5IkM5c
-          start: 0
-          len: 33
-          answer: Angel
-
-        - type: audio
-          id: insane
-          url: https://www.youtube.com/watch?v=L8efZXvPR7A
-          start: 0
-          len: 18
-          answer: Stark Raving Mad
-
-        - type: audio
-          id: jungle
-          url: https://www.youtube.com/watch?v=7j5Be5a86uA
-          start: 3
-          len: 33
-          answer: Monk
-
-        - type: audio
-          id: jungle
-          url: https://www.youtube.com/watch?v=ourfSzoC7pA
-          start: 0
-          len: 20
-          answer: Brooklyn Nine-Nine
-
-        - type: audio
-          id: jungle
-          url: https://www.youtube.com/watch?v=TjCnHJ8wIuM
-          start: 0
-          len: 20
-          answer: ER
-
-    - type: super
-      text: Who wrote and originally performed these cover songs?
-      questions:
-        - type: audio
-          id: feel-my-love
-          url: https://www.youtube.com/watch?v=0put0_a--Ng
-          start: 35
-          len: 26
-          answer: Bob Dylan
-
-        - type: audio
-          id: dancing-on-my-own
-          url: https://www.youtube.com/watch?v=q31tGyBJhRY
-          start: 30
-          len: 20
-          answer: Robyn
-
-        - type: audio
-          id: hallelujah
-          url: https://www.youtube.com/watch?v=y8AWFf7EAc4
-          start: 80
-          len: 30
-          answer: Leonard Cohen
-
-        - type: audio
-          id: fall-in-love
-          url: https://www.youtube.com/watch?v=IwT8Pu-kS0o
-          start: 5
-          len: 30
-          answer: Tom Waits
+    - type: audio
+      url: https://www.youtube.com/watch?v=L7ZrWOGIbIE
+      text: From which TV show does this theme songs come?
+      start: 0
+      len: 24
+      answer:
+          type: image
+          url: https://m.media-amazon.com/images/M/MV5BNTExZDVkM2YtZTJkMS00NmU4LTk4YmQtZDZkOTJjMzZlYWFiXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_.jpg
 
     - type: super
       text: What do these logos represent?
       questions:
-        - type: image
-          url: https://portswigger.net/content/images/logos/thumbnail.png
-          answer: Portswigger
-
-        - type: image
-          url: https://www.v3.co.uk/w-images/abadf7d1-ea72-48be-a7f2-0c14fc9f86e9/0/winrarlogo-580x358.jpeg
-          answer: WinRAR
-
         - type: image
           url: https://starwarsblog.starwars.com/wp-content/uploads/sites/6/2015/11/rebel-symbol.jpg
           answer: The Rebel Alliance
@@ -163,46 +54,3 @@ quiz:
         - type: image
           url: https://vuejs.org/images/logo.png
           answer: Vue.js
-
-        - type: image
-          url: http://dcplusplus.sourceforge.net/webhelp/DCPlusPlus.png
-          answer: DC++
-
-    - type: super
-      text: What were these pets called that appeared in TV shows and movies?
-      questions:
-        - type: image
-          url: https://i.ytimg.com/vi/pcpNl5HLGkY/hqdefault.jpg
-          answer: Eddie
-
-        - type: image
-          url: https://imgix.bustle.com/rehost/2016/9/13/827dab71-4b79-47b7-acf0-3a3b00703156.jpg?w=970&h=582&fit=crop&crop=faces&auto=format&q=70
-          answer: Marcel
-
-        - type: image
-          url: https://img.yescdn.ru/2016/01/30/cover/54d5618e904447b8f676f94a7427501c-beethoven.jpg
-          answer: Beethoven
-
-        - type: image
-          url: https://cdn.playbuzz.com/cdn/ac3f41f6-b4c7-4aa9-83af-17d892cc19be/896af8ae-0440-495e-b013-c915d3fb0eb7.jpg
-          answer: Mr. Whiskerson
-
-        - type: image
-          url: https://static1.squarespace.com/static/51b3dc8ee4b051b96ceb10de/t/5a315ec5652dea5202a332e4/1513184972244/steven-spielberg-saved-gizmo-from-becoming-a-villain-in-gremlins-social.jpg?format=2500w
-          answer: Gizmo
-
-        - type: image
-          url: https://vignette.wikia.nocookie.net/harrypotter/images/1/1e/Hedwig_Snowy_Owl_PM.png/revision/latest?cb=20161123234010
-          answer: Hedwig
-
-        - type: image
-          url: https://www.rover.com/blog/wp-content/uploads/2016/11/Paul_Anka_Dog-960x540.jpg
-          answer: Paul Anka
-
-        - type: image
-          url: https://vignette.wikia.nocookie.net/avatar/images/4/43/Inquisitive_Momo.png/revision/latest?cb=20081225191217
-          answer: Momo
-
-        - type: image
-          url: https://vignette.wikia.nocookie.net/disney/images/a/a0/Mushu_character.png/revision/latest?cb=20180509053919
-          answer: Mushu
