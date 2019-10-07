@@ -1,27 +1,36 @@
 title: Funquiz
 subtitle: Example pubquiz
 quiz:
+    # Simple text question
     - type: text
       text: What does the acronym VIM stand for?
       answer: Vi IMproved
 
+    # If no type is specified, text is assumed
+    - text: What killed the cat?
+      answer: Frank Underwood
+
+    # Image question. Image is saved to data directory.
     - type: image
       text: What is the Italian name for this type of pasta?
       url: https://image.freepik.com/free-photo/close-up-dry-fusilli_23-2147749537.jpg
       answer: Fusilli
 
+    # Audio question. YouTube video is downloaded and audio extracted.
     - type: audio
       url: https://www.youtube.com/watch?v=1mpWuJ8plhU
       len: 7
       text: Which movie does this quote come from?
       answer: Sneakers
 
+    # Video question. YouTube video is downloaded.
     - type: video
       url: https://www.youtube.com/watch?v=SiXNUaSjXRY
       text: What was Roger Murtaugh's response?
       start: 0
       len: 12
       answer:
+          # Video answer. YouTube video is downloaded.
           type: video
           url: https://www.youtube.com/watch?v=SiXNUaSjXRY
           text: It's just been revoked
@@ -36,6 +45,7 @@ quiz:
           type: image
           url: https://m.media-amazon.com/images/M/MV5BNTExZDVkM2YtZTJkMS00NmU4LTk4YmQtZDZkOTJjMzZlYWFiXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_.jpg
 
+    # Super questions. A category of questions with multiple sub-questions.
     - type: super
       text: What do these logos represent?
       questions:
