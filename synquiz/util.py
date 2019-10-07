@@ -8,7 +8,7 @@ from pathlib import Path
 
 log = logging.getLogger('synquiz')
 
-DATA_DIR = Path(__file__).resolve().parent.parent / 'data'
+DATA_DIR = Path(__file__).resolve().parent / 'data'
 TEMPLATE_FILE = DATA_DIR / 'template.html'
 
 def randstr():

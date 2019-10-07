@@ -22,6 +22,7 @@ setup(
     author_email=about['__author_email__'],
     license=about['__version__'],
     packages=['synquiz'],
+    package_data={'synquiz': ['data/*.html']},
     python_requires='>=3.6.0',
     install_requires=[
         'pyyaml',
