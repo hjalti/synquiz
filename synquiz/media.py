@@ -100,7 +100,7 @@ class MediaManager:
         self.home = home
         self.cache = Cache(self.home)
 
-    def _handle_local_media(data):
+    def _handle_local_media(self, data):
         url = data['url']
         data['file'] = url
         data['content_type'] = content_type(url)
