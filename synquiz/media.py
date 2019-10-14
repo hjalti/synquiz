@@ -95,6 +95,9 @@ class Cache:
     def __getitem__(self, key):
         return self.cache[key]
 
+    def get(self, key):
+        return self.cache.get(key)
+
 class MediaManager:
     def __init__(self, home):
         self.home = home
@@ -231,24 +234,23 @@ class MediaManager:
 
         if not keys:
             log.info('Nothing to do')
-            return
+        else:
+            log.info(f'{len(keys)} files to delete')
+            for k in keys:
+                path = self.home / self.cache[k]
+                if path.is_file():
+                    log.debug(f'Deleting {path}')
+                    path.unlink()
+                self.cache.remove(k)
 
-        log.info(f'{len(keys)} files to delete')
-        for k in keys:
-            path = self.home / self.cache[k]
-            if path.is_file():
-                log.info(f'Deleting {path}')
-                path.unlink()
-            self.cache.remove(k)
-
-        self.cache.write()
+            self.cache.write()
 
         if not remove_all:
             return
 
         log.info('Cleaning up all files not used in quiz')
 
-        files = set(map(lambda x: self.media_file(x), self.media_items(self.quiz_data['quiz'])))
+        files = set(map(lambda x: self.media_file(x), self.media_items(quiz_data['quiz'])))
         data_files = set([p for p in (self.home / 'data').glob('*') if p.is_file()])
         to_delete = data_files - files
 
@@ -258,7 +260,7 @@ class MediaManager:
 
         log.info(f'{len(to_delete)} files to delete')
         for p in to_delete:
-            log.info(f'Deleting {p}')
+            log.debug(f'Deleting {p}')
             p.unlink()
 
     def save_cache(self):
