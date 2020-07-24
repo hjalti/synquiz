@@ -47,9 +47,9 @@ def video_metadata(data):
     return False, (data['url'], start, length)
 
 def media_cache_key(data):
-    if data['type'] == 'image':
+    if data.get('type') == 'image':
         return data['url']
-    if data['type'] in ('audio', 'video'):
+    if data.get('type') in ('audio', 'video'):
         return video_metadata(data)[1]
     return None
 
@@ -222,7 +222,7 @@ class MediaManager:
                 res.append(q)
             if util.is_media_type(q.get('answer')):
                 res.append(q['answer'])
-            if q['type'] == 'super':
+            if q.get('type') == 'super':
                 res.extend(self.media_items(q['questions']))
         return res
 

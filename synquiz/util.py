@@ -18,7 +18,7 @@ def check_data_dir(home):
     (home / 'data').mkdir(exist_ok=True)
 
 def is_media_type(data):
-    return isinstance(data, dict) and data['type'] in ('audio', 'video', 'image')
+    return isinstance(data, dict) and data.get('type') in ('audio', 'video', 'image')
 
 def to_hms(total):
     mins = int(total // 60)
