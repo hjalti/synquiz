@@ -1,8 +1,14 @@
-Synquiz - The Pubquiz Overengineered
-====================================
+<p align="center">
+<img src="media/logo.png"><br>
+</p>
 
-What is it
-----------
+<h1 align="center">
+The Pubquiz Overengineered
+</h1>
+
+
+What is it?
+-----------
 
 A system that generates HTML slide show pubquizzes from YAML files. Multiple
 types of questions are supported, i.e.,
