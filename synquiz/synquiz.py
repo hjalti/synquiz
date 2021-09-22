@@ -176,7 +176,7 @@ def watch_make(args):
 
 def finalize(args):
     util.check_data_dir(args.dir)
-    copy_paths = ['css', 'js', 'lib']
+    copy_paths = ['dist']
     log.info('Copying required files')
     for p in copy_paths:
         dest = args.dir / p
