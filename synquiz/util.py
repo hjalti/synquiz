@@ -24,7 +24,7 @@ def to_hms(total):
     mins = int(total // 60)
     hours = int(mins // 60)
     secs = total % 60
-    st = f'{hours:02}:{mins:02}:{secs:05.02f}'
+    st = f'{hours:02}:{mins:02}:{secs:06.03f}'
     return st
 
 class NpmRunner:

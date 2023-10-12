@@ -28,6 +28,8 @@ setup(
         'pyyaml',
         'mako',
         'watchdog',
+        'filetype',
+        'requests',
     ],
     entry_points={
         'console_scripts': [

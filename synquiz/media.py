@@ -1,7 +1,8 @@
-import re
 import pickle
 import subprocess
 import logging
+import filetype
+import shutil
 
 from pathlib import Path
 from urllib import request, parse
@@ -135,28 +136,46 @@ class MediaManager:
             return
 
         url = data['url']
-        parsed = parse.urlparse(url)
-        parts = parsed.path.split('.')
-        if not parts:
-            ext = 'img'
-        ext = parts[-1].split('/')[0]
 
-        dest = self.home / 'data' / f'{util.randstr()}.{ext}'
 
         log.info('Downloading media...')
         try:
             req = request.Request(url)
             req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; de; rv:1.9.1.5) Gecko/20091102 Firefox/3.5.5')
             resp = request.urlopen(req)
-        except request.URLError:
-            log.warning(f"Could not download image '{url}' for {data.get('title')}")
+        except:
+            log.exception(f"Could not download image '{url}' for {data.get('title')}")
             return
-        log.info('Image successfully downloaded')
-        dest.write_bytes(resp.read())
+        log.info('Image data successfully downloaded')
+        img_data = resp.read()
 
-        self.cache.add(dest, url, data)
+        parsed = parse.urlparse(url)
+        parts = parsed.path.split('.')
+        url_ext = None
+        if parts:
+            url_ext = parts[-1].split('/')[0]
+
+        if not filetype.is_image(img_data) and url_ext != 'svg':
+            kind = filetype.guess(img_data)
+            if not kind:
+                mime = 'Unknown'
+            else:
+                mime = kind.mime
+            log.warning(f"Downloaded object does not appear to be an image: {mime} (file is saved anyway, in case we are wrong)")
+
+        img_type = filetype.guess(img_data)
+        ext = url_ext or 'img'
+        if img_type:
+            ext = img_type.extension
+        dest = self.home / 'data' / f'{util.randstr()}.{ext}'
+        dest.write_bytes(img_data)
+
+        self.cache.add(str(dest), url, data)
 
     def handle_media(self, data):
+        if not shutil.which('yt-dlp'):
+            log.error('Command yt-dlp not found. Unable to add video/audio question')
+            return
         if not self.needs_downloading(data):
             return
 
@@ -165,7 +184,8 @@ class MediaManager:
         get_all, key = video_metadata(data)
         _, start, length = key
         name = util.randstr()
-        file_format = f'{self.home}/data/{name}.%(ext)s'
+        data_dir = self.home / 'data'
+        file_format = f'{data_dir}/{name}.%(ext)s'
 
         log.info('Downloading media...')
 
@@ -181,16 +201,16 @@ class MediaManager:
                 '--postprocessor-args',
                 f'-ss {util.to_hms(start)} -t {util.to_hms(length)}',
             ]
-
+        command = [
+            'yt-dlp',
+            '-o',
+            file_format,
+            *postprocessor,
+            *extra_options,
+            url,
+        ]
         result = subprocess.run(
-            [
-                'youtube-dl',
-                '-o',
-                file_format,
-                *postprocessor,
-                *extra_options,
-                url,
-            ],
+            command,
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
             encoding='utf-8',
@@ -203,14 +223,20 @@ class MediaManager:
 
         log.info('Media download done')
 
-        file_re = re.compile(rf'\[(?:download|ffmpeg)\].*({self.home}/data/{name}\.[a-z0-9]+)')
+        downloaded = list(data_dir.glob(f'{name}.*'))
+
         log.debug(result.stdout)
-        match = file_re.findall(result.stdout)
-        if not match:
+        if not downloaded:
             log.warning('No file name found for download {url}')
             log.warning(result.stdout)
             return
-        full_path = match[-1]
+        if len(downloaded) > 1:
+            log.warning('More than one file donwloaded for {url}')
+            log.warning(result.stdout)
+            return
+
+        downloaded_file = downloaded[0]
+        full_path = str(downloaded_file.resolve())
 
         self.cache.add(full_path, key, data)
 

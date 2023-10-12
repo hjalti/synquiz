@@ -31,7 +31,6 @@ Example
 A quiz is specified by a YAML file, `quiz.yaml`.
 
 ```yaml
-
 title: Funquiz
 subtitle: Example pubquiz
 quiz:
@@ -54,7 +53,7 @@ quiz:
     - type: audio
       url: https://www.youtube.com/watch?v=1mpWuJ8plhU
       len: 7
-      text: Which movie does this quote come from?
+      text: From which movie does this quote originate?
       answer: Sneakers
 
     # Video question. YouTube video is downloaded.
@@ -72,7 +71,7 @@ quiz:
 
     - type: audio
       url: https://www.youtube.com/watch?v=L7ZrWOGIbIE
-      text: From which TV show does this theme songs come?
+      text: Which TV show features this theme song?
       start: 0
       len: 24
       answer:
@@ -84,7 +83,7 @@ quiz:
       text: What do these logos represent?
       questions:
         - type: image
-          url: https://starwarsblog.starwars.com/wp-content/uploads/sites/6/2015/11/rebel-symbol.jpg
+          url: https://upload.wikimedia.org/wikipedia/commons/2/2a/Rebel_Alliance_logo.svg
           answer: The Rebel Alliance
 
         - type: image
@@ -92,7 +91,7 @@ quiz:
           answer: Aperture Laboratories
 
         - type: image
-          url: https://upload.wikimedia.org/wikipedia/en/thumb/e/e0/Marmot_Logo.svg/1024px-Marmot_Logo.svg.png
+          url: https://1000logos.net/wp-content/uploads/2020/02/Marmot-symbol.jpg
           answer: Marmot
 
         - type: image
@@ -112,7 +111,7 @@ Synquiz requires the following to be installed
 
 * `git`
 * `npm`
-* `yotube-dl` (optional, only needed for audio/video questions)
+* `yt-dlp` <https://github.com/yt-dlp/yt-dlp> (optional, only needed for audio/video questions)
 * `ffmpeg` (optional, only needed for audio/video questions)
 
 Installation
